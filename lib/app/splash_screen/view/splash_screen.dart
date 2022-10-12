@@ -1,29 +1,24 @@
 import 'dart:async';
 import 'package:calicut_test/app/intro_screen/view/intro_screen.dart';
+import 'package:calicut_test/app/splash_screen/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ScreenSplash extends StatefulWidget {
+class ScreenSplash extends StatelessWidget {
   const ScreenSplash({Key? key}) : super(key: key);
 
   @override
-  State<ScreenSplash> createState() => _ScreenSplashState();
-}
-
-class _ScreenSplashState extends State<ScreenSplash> {
-  @override
-  void initState() {
-    splash();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final loginCntrl = Get.put(SplashController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(child: Image.asset('asset/splash.jpg',fit: BoxFit.cover,)),
+            Center(
+                child: Image.asset(
+              'asset/splash.jpg',
+              fit: BoxFit.cover,
+            )),
           ],
         ),
       ),
