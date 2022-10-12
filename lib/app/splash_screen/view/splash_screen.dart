@@ -20,14 +20,11 @@ class _ScreenSplashState extends State<ScreenSplash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Colors.blue,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Align(
-              alignment: Alignment.center,
-              child: Image.asset('asset/img01.png')),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(child: Image.asset('asset/splash.jpg',fit: BoxFit.cover,)),
+          ],
         ),
       ),
     );
