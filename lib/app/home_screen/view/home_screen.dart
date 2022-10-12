@@ -1,5 +1,4 @@
-import 'package:calicut_test/app/home_screen/view/widget/custom_grid.dart';
-import 'package:calicut_test/app/home_screen/view/widget/custom_tab.dart';
+import 'package:calicut_test/app/home_screen/view/widget/bottom_nav.dart';
 import 'package:calicut_test/app/home_screen/view/widget/google_map.dart';
 import 'package:calicut_test/app/home_screen/view/widget/inside_screen_custom.dart';
 import 'package:calicut_test/app/home_screen/view/widget/pckup_containerc_ompleted.dart';
@@ -45,22 +44,32 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  DeliveryDetailsCustom(
-                    image: 'asset/delivery-man.png',
-                    title: 'pickUps',
-                    color: red,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const ScreenCustom());
+                    },
+                    child: const DeliveryDetailsCustom(
+                      image: 'asset/delivery-man.png',
+                      title: 'pickUps',
+                      color: red,
+                    ),
                   ),
-                  DeliveryDetailsCustom(
-                    image: 'asset/delivered.png',
-                    title: 'Delivery',
-                    color: greenlight,
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const ScreenCustom());
+                    },
+                    child: const DeliveryDetailsCustom(
+                      image: 'asset/delivered.png',
+                      title: 'Delivery',
+                      color: greenlight,
+                    ),
                   ),
-                  DeliveryDetailsCustom(
+                  const DeliveryDetailsCustom(
                     image: 'asset/money.png',
                     title: 'Revenue',
                   ),
-                  DeliveryDetailsCustom(
+                  const DeliveryDetailsCustom(
                     image: 'asset/delivered.png',
                     title: 'Report',
                     color: red,
@@ -75,51 +84,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: SizedBox(
-        height: 70,
-        child: BottomNavigationBar(
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            currentIndex: 1,
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.black,
-                  ),
-                  activeIcon: ColoredBox(
-                    color: Colors.cyan,
-                    child: Icon(Icons.home, color: Colors.black),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.note_add_outlined,
-                      size: 50, color: Colors.black),
-                  activeIcon: SizedBox(
-                    width: double.maxFinite,
-                    height: 40,
-                    child: ColoredBox(
-                      color: Colors.cyan,
-                      child: Center(
-                        child:
-                            Icon(Icons.note_add_outlined, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.notification_important,
-                    color: Colors.black,
-                  ),
-                  activeIcon: ColoredBox(
-                    color: Colors.cyan,
-                    child: Icon(Icons.home, color: Colors.black),
-                  ),
-                  label: "")
-            ]),
-      ),
+      bottomNavigationBar: const CustomBottomNav(),
     );
   }
 }
-

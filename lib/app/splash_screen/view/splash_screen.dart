@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'package:calicut_test/app/intro_screen/view/intro_screen.dart';
 import 'package:calicut_test/app/splash_screen/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +7,7 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loginCntrl = Get.put(SplashController());
+    Get.put(SplashController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -23,10 +21,5 @@ class ScreenSplash extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  splash() async {
-    await Future.delayed(const Duration(seconds: 3));
-    Get.offAll(() => IndrouctionScreen());
   }
 }

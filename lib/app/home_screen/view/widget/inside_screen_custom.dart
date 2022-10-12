@@ -1,3 +1,4 @@
+import 'package:calicut_test/app/utiles/color.dart';
 import 'package:flutter/material.dart';
 
 class ScreenCustom extends StatelessWidget {
@@ -44,7 +45,7 @@ class ScreenCustom extends StatelessWidget {
                     flex: 2,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.teal,
+                          backgroundColor: green,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 30, vertical: 10),
                         ),
@@ -130,7 +131,7 @@ class ScreenCustom extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.teal,
+                                backgroundColor: green,
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 10),
                               ),
