@@ -1,9 +1,12 @@
 import 'package:calicut_test/app/home_screen/view/widget/custom_grid.dart';
+import 'package:calicut_test/app/home_screen/view/widget/custom_tab.dart';
+import 'package:calicut_test/app/home_screen/view/widget/google_map.dart';
+import 'package:calicut_test/app/home_screen/view/widget/inside_screen_custom.dart';
 import 'package:flutter/material.dart';
 
 
-class ScreenHome extends StatelessWidget {
-  ScreenHome({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
   bool val = false;
   @override
   Widget build(BuildContext context) {
