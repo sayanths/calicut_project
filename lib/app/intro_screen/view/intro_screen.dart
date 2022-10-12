@@ -85,7 +85,7 @@ class IndrouctionScreen extends StatelessWidget {
                           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                           minWidth: MediaQuery.of(context).size.width,
                           onPressed: () {
-                          //  Get.to(ScreenLogin());
+                           Get.to(ScreenLogin());
                           },
                           child: const Text('Get Started',
                               textAlign: TextAlign.center,
