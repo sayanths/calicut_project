@@ -11,8 +11,8 @@ class CustomBottomNav extends StatelessWidget {
     return SizedBox(
       height: 70,
       child: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          // showSelectedLabels: false,
+          // showUnselectedLabels: false,
           currentIndex: 1,
           items: const [
             BottomNavigationBarItem(
@@ -24,34 +24,31 @@ class CustomBottomNav extends StatelessWidget {
                   color: green,
                   child: Icon(Icons.home, color: black),
                 ),
-                label: ""),
+                label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.note_add_outlined,
-                    size: 50, color: black),
+                icon: Icon(Icons.note_add_outlined, size: 50, color: black),
                 activeIcon: SizedBox(
                   width: double.maxFinite,
                   height: 40,
                   child: ColoredBox(
                     color: green,
                     child: Center(
-                      child:
-                          Icon(Icons.note_add_outlined, color: black),
+                      child: Icon(Icons.note_add_outlined, color: black),
                     ),
                   ),
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.notification_important,
+                  Icons.notifications,
                   color: black,
                 ),
                 activeIcon: ColoredBox(
                   color: green,
                   child: Icon(Icons.home, color: black),
                 ),
-                label: "")
+                label: "notification")
           ]),
     );
   }
 }
-
