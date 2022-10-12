@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:calicut_test/app/intro_screen/view/intro_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({Key? key}) : super(key: key);
@@ -35,8 +35,6 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   splash() async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (ctx) => IndrouctionScreen()),
-    );
+    Get.offAll(() => IndrouctionScreen());
   }
 }
