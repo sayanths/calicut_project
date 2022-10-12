@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-class Indrouction extends StatelessWidget {
-  Indrouction({Key? key}) : super(key: key);
+class IndrouctionScreen extends StatelessWidget {
+  IndrouctionScreen({Key? key}) : super(key: key);
 
   final controller = Get.put(OnboardingController());
 
@@ -85,7 +85,7 @@ class Indrouction extends StatelessWidget {
                           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                           minWidth: MediaQuery.of(context).size.width,
                           onPressed: () {
-                            Get.to(ScreenLogin());
+                          //  Get.to(ScreenLogin());
                           },
                           child: const Text('Get Started',
                               textAlign: TextAlign.center,
