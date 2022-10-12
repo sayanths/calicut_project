@@ -2,14 +2,19 @@ import 'package:calicut_test/app/home_screen/view/widget/custom_grid.dart';
 import 'package:calicut_test/app/home_screen/view/widget/custom_tab.dart';
 import 'package:calicut_test/app/home_screen/view/widget/google_map.dart';
 import 'package:calicut_test/app/home_screen/view/widget/inside_screen_custom.dart';
+import 'package:calicut_test/app/home_screen/view/widget/pckup_containerc_ompleted.dart';
+import 'package:calicut_test/app/home_screen/view/widget/tabbar.dart';
+import 'package:calicut_test/app/utiles/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   bool val = false;
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
@@ -23,73 +28,9 @@ class HomeScreen extends StatelessWidget {
           )),
       body: ListView(
         children: [
-          Container(
-            color: Colors.teal,
-            height: 50,
-            child: Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16),
-                  child: Icon(Icons.message),
-                ),
-                SizedBox(width: 10),
-                Text('You have new pickup request')
-              ],
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 8, bottom: 8),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Today's Task",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 180,
-            width: double.infinity,
-            child: Row(
-              children: [
-                Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 15),
-                  child: Grid(
-                      height: double.infinity,
-                      width: double.infinity,
-                      color: const Color.fromARGB(255, 17, 52, 75),
-                      test1: "Today's Pickup",
-                      test2: "Jobs",
-                      num: "5"),
-                )),
-                SizedBox(
-                  width: 180,
-                  child: Column(
-                    children: [
-                      Expanded(
-                          child: Grid(
-                              height: double.infinity,
-                              width: double.infinity,
-                              color: const Color.fromARGB(255, 13, 151, 144),
-                              test1: "Assigned Delivery",
-                              test2: "Jobs",
-                              num: "12")),
-                      Expanded(
-                          child: Grid(
-                              height: double.infinity,
-                              width: double.infinity,
-                              color: const Color.fromARGB(255, 33, 243, 233),
-                              test1: "Today's",
-                              test2: "Revenue",
-                              num: "5"))
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 10)
-              ],
-            ),
-          ),
+          PickUpContainerCompleted(size: size),
+          const TodaysTaskCustom(),
+          TodaysTaskContainer(size: size),
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Google(),
@@ -97,118 +38,40 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 60,
+              height: size.height / 10,
+              width: double.infinity,
               decoration: BoxDecoration(
-                border: Border.all(),
+                border: Border.all(color: darkGreen, style: BorderStyle.solid),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const ScreenCustom()));
-                        },
-                        child: Image.asset('asset/delivery-man.png',
-                            width: 30, height: 30, color: Colors.redAccent),
-                      ),
-                      const Text('Pickups')
-                    ],
+                children: const [
+                  DeliveryDetailsCustom(
+                    image: 'asset/delivery-man.png',
+                    title: 'pickUps',
+                    color: red,
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const ScreenCustom()));
-                        },
-                        child: Image.asset('asset/delivered.png',
-                            height: 30, width: 30, color: Colors.green),
-                      ),
-                      const Text('Devivery')
-                    ],
+                  DeliveryDetailsCustom(
+                    image: 'asset/delivered.png',
+                    title: 'Delivery',
+                    color: greenlight,
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ScreenCustom()));
-                          },
-                          child: Image.asset('asset/money.png',
-                              height: 30, width: 30)),
-                      const Text('Revenue')
-                    ],
+                  DeliveryDetailsCustom(
+                    image: 'asset/money.png',
+                    title: 'Revenue',
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ScreenCustom()));
-                          },
-                          child: Image.asset(
-                            'asset/report.png',
-                            height: 30,
-                            width: 30,
-                            color: Colors.red,
-                          )),
-                      const Text('Report')
-                    ],
+                  DeliveryDetailsCustom(
+                    image: 'asset/delivered.png',
+                    title: 'Report',
+                    color: red,
                   ),
                 ],
               ),
             ),
           ),
-          DefaultTabController(
+          const DefaultTabController(
             length: 4,
-            child: Column(
-              children: [
-                TabBar(
-                  indicator: const BoxDecoration(
-                    color: Color.fromARGB(255, 114, 213, 165),
-                  ),
-                  labelColor: Colors.black,
-                  labelStyle: const TextStyle(fontSize: 10),
-                  tabs: [
-                    Tab(
-                      icon:
-                          Image.asset('asset/menu.png', height: 25, width: 25),
-                      text: "All",
-                    ),
-                    Tab(
-                      icon: Image.asset('asset/logistics.png',
-                          height: 25, width: 25),
-                      text: "Pickup Request",
-                    ),
-                    Tab(
-                      icon: Image.asset('asset/accepted.png',
-                          height: 25, width: 25),
-                      text: "Accepted",
-                    ),
-                    Tab(
-                      icon: Image.asset('asset/delivery-boy.png',
-                          height: 25, width: 25),
-                      text: "Delivery jobs",
-                    )
-                  ],
-                ),
-                SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.9,
-                    child: const TabBarView(children: [
-                      TabScreen(),
-                      TabScreen(),
-                      TabScreen(),
-                      TabScreen(),
-                    ]))
-              ],
-            ),
+            child: CustomTabBar(),
           )
         ],
       ),
@@ -259,3 +122,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
