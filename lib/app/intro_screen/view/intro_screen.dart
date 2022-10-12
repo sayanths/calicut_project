@@ -1,8 +1,9 @@
 import 'package:calicut_test/app/intro_screen/controller/onboard_controller.dart';
 import 'package:calicut_test/app/login_screen/view/login_screen.dart';
+import 'package:calicut_test/app/utiles/color.dart';
+import 'package:calicut_test/app/utiles/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class IndrouctionScreen extends StatelessWidget {
   IndrouctionScreen({Key? key}) : super(key: key);
@@ -11,8 +12,8 @@ class IndrouctionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -26,18 +27,16 @@ class IndrouctionScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         controller.onboardingPages[index].imageAsset,
-                        width: MediaQuery.of(context).size.width * .6,
-                        height: MediaQuery.of(context).size.height * .3,
-                        fit: BoxFit.fill,
+                        width: size.width / 1,
+                        height: size.height / 3,
                       ),
-                      const SizedBox(height: 32),
+                      height30,
                       Text(
                         controller.onboardingPages[index].title,
                         style: const TextStyle(
                             fontSize: 24, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01),
+                      height10,
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 64.0),
                         child: Text(
@@ -62,8 +61,8 @@ class IndrouctionScreen extends StatelessWidget {
                       height: 12,
                       decoration: BoxDecoration(
                         color: controller.selectedPageIndex.value == index
-                            ? Colors.blue
-                            : Colors.grey,
+                            ? blue
+                            : grey,
                         shape: BoxShape.circle,
                       ),
                     );
@@ -81,18 +80,18 @@ class IndrouctionScreen extends StatelessWidget {
                       child: Material(
                         elevation: 5,
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.teal,
+                        color: green,
                         child: MaterialButton(
                           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                           minWidth: MediaQuery.of(context).size.width,
                           onPressed: () {
-                           Get.to(LoginScreen());
+                            Get.to(LoginScreen());
                           },
                           child: const Text('Get Started',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.white,
+                                  color: white,
                                   fontWeight: FontWeight.bold)),
                         ),
                       ),

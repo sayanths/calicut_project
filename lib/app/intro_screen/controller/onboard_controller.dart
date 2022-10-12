@@ -12,14 +12,14 @@ class OnboardingController extends GetxController {
     OnboardingInfo(
         'asset/WhatsApp_Image_2022-09-27_at_3.49.19_PM__1_-removebg-preview (1).png',
         'Accept a job',
-        'Now you can order food any time  right from your mobile.'),
+        ' Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book'),
     OnboardingInfo(
         'asset/images__1_-removebg-preview.png',
         'Tracking Real time',
-        'We are maintain safty and We keep clean while making food.'),
+        ' Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book'),
     OnboardingInfo(
         'asset/images__2_-removebg-preview.png',
         'Get On- Time Service',
-        'Orders your favorite meals will be immediately deliver')
+        ' Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book')
   ];
 }

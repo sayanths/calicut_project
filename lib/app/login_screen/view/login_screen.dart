@@ -1,7 +1,7 @@
 import 'package:calicut_test/app/login_screen/controller/login_controller.dart';
+import 'package:calicut_test/app/utiles/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
-
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
             child: Container(
               height: 200,
               width: 200,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('asset/img01.png'), fit: BoxFit.cover),
               ),
@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                 TextFormField(
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Empty";
+                      return "Field is required";
                     }
                     if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                         .hasMatch(value)) {
@@ -51,12 +51,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                height20,
                 TextFormField(
                   obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Empty";
+                      return "Field is required";
                     }
 
                     return null;

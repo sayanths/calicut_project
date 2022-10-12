@@ -1,7 +1,11 @@
 class OnboardingInfo {
-  final imageAsset;
-  final title;
-  final description;
+  final String imageAsset;
+  final String title;
+  final String description;
 
-  OnboardingInfo(this.imageAsset, this.title, this.description);
+  OnboardingInfo(
+    this.imageAsset,
+    this.title,
+    this.description,
+  );
 }
