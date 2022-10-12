@@ -1,3 +1,4 @@
+import 'package:calicut_test/app/login_screen/model/login_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

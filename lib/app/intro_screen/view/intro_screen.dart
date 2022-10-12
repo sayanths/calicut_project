@@ -1,4 +1,5 @@
 import 'package:calicut_test/app/intro_screen/controller/onboard_controller.dart';
+import 'package:calicut_test/app/login_screen/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -85,7 +86,7 @@ class IndrouctionScreen extends StatelessWidget {
                           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                           minWidth: MediaQuery.of(context).size.width,
                           onPressed: () {
-                           Get.to(ScreenLogin());
+                           Get.to(LoginScreen());
                           },
                           child: const Text('Get Started',
                               textAlign: TextAlign.center,
