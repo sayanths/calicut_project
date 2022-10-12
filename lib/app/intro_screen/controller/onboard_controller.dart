@@ -2,7 +2,6 @@ import 'package:calicut_test/app/intro_screen/model/on_board_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-
 class OnboardingController extends GetxController {
   var selectedPageIndex = 0.obs;
   bool get isLastPage => selectedPageIndex.value == onboardingPages.length - 1;

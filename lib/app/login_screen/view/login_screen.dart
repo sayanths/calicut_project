@@ -1,4 +1,7 @@
 import 'package:calicut_test/app/login_screen/controller/login_controller.dart';
+import 'package:calicut_test/app/login_screen/view/widget/custom_button..dart';
+import 'package:calicut_test/app/login_screen/view/widget/custom_forgot_pass.dart';
+import 'package:calicut_test/app/login_screen/view/widget/custom_textfield.dart';
 import 'package:calicut_test/app/utiles/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
@@ -14,25 +17,21 @@ class LoginScreen extends StatelessWidget {
       child: ListView(
         children: [
           const SizedBox(height: 40),
-          Center(
-            child: Container(
-              height: 200,
-              width: 200,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('asset/img01.png'), fit: BoxFit.cover),
-              ),
-            ),
-          ),
+          const CustomLogo(),
           const SizedBox(height: 10),
           Form(
             key: logincontroller.formkey,
             child: Column(
               children: [
-                TextFormField(
+                CustomTextFromField(
+                  controller: logincontroller.emailController,
+                  obsureText: false,
+                  keyboardAppearnce: TextInputType.emailAddress,
+                  title: 'Username',
+                  icon: Icons.person,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Field is required";
+                      return "email is required";
                     }
                     if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                         .hasMatch(value)) {
@@ -40,71 +39,30 @@ class LoginScreen extends StatelessWidget {
                     }
                     return null;
                   },
-                  controller: logincontroller.emailController,
-                  decoration: const InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    prefixIcon: Icon(Icons.person),
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                  ),
                 ),
                 height20,
-                TextFormField(
-                  obscureText: true,
+                CustomTextFromField(
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Field is required";
+                      return "password is required";
                     }
-
                     return null;
                   },
                   controller: logincontroller.passwordController,
-                  decoration: const InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    prefixIcon: Icon(Icons.lock),
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                  ),
+                  obsureText: true,
+                  title: 'Password',
+                  icon: Icons.lock,
                 ),
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 10, top: 8, bottom: 8),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'Forgot Password?',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 11, 6, 26),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
-                ),
-                onPressed: () {
-                  logincontroller.login();
-                },
-                child: const Text('Login')),
-          ),
+          height20,
+          const CusstomForgotPassword(),
+          height20,
+          CustomElevatedButton(logincontroller: logincontroller),
         ],
       ),
     ));
   }
 }
+
