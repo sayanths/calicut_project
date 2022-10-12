@@ -30,10 +30,7 @@ class HomeScreen extends StatelessWidget {
           PickUpContainerCompleted(size: size),
           const TodaysTaskCustom(),
           TodaysTaskContainer(size: size),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Google(),
-          ),
+          const SizedBox(height: 300, width: double.infinity, child: Google()),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(

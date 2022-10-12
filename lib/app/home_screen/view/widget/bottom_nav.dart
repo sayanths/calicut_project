@@ -1,3 +1,4 @@
+import 'package:calicut_test/app/utiles/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNav extends StatelessWidget {
@@ -17,24 +18,24 @@ class CustomBottomNav extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: Colors.black,
+                  color: black,
                 ),
                 activeIcon: ColoredBox(
-                  color: Colors.cyan,
-                  child: Icon(Icons.home, color: Colors.black),
+                  color: green,
+                  child: Icon(Icons.home, color: black),
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(Icons.note_add_outlined,
-                    size: 50, color: Colors.black),
+                    size: 50, color: black),
                 activeIcon: SizedBox(
                   width: double.maxFinite,
                   height: 40,
                   child: ColoredBox(
-                    color: Colors.cyan,
+                    color: green,
                     child: Center(
                       child:
-                          Icon(Icons.note_add_outlined, color: Colors.black),
+                          Icon(Icons.note_add_outlined, color: black),
                     ),
                   ),
                 ),
@@ -42,11 +43,11 @@ class CustomBottomNav extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.notification_important,
-                  color: Colors.black,
+                  color: black,
                 ),
                 activeIcon: ColoredBox(
-                  color: Colors.cyan,
-                  child: Icon(Icons.home, color: Colors.black),
+                  color: green,
+                  child: Icon(Icons.home, color: black),
                 ),
                 label: "")
           ]),
