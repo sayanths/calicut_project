@@ -24,7 +24,7 @@ class CustomBottomNav extends StatelessWidget {
                   color: green,
                   child: Icon(Icons.home, color: black),
                 ),
-                label: "Home"),
+                label: ""),
             BottomNavigationBarItem(
                 icon: Icon(Icons.note_add_outlined, size: 50, color: black),
                 activeIcon: SizedBox(
@@ -47,7 +47,7 @@ class CustomBottomNav extends StatelessWidget {
                   color: green,
                   child: Icon(Icons.home, color: black),
                 ),
-                label: "notification")
+                label: "")
           ]),
     );
   }
